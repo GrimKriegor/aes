@@ -45,7 +45,9 @@ endif()
 add_executable(aesxam aesxam.c)
 target_link_libraries(aesxam aes)
 
-add_executable(tablegen tablegen.c)
+if(NOT CMAKE_SYSTEM_NAME STREQUAL "Linux")
+    add_executable(tablegen tablegen.c)
+endif()
 
 add_executable(aes_gav aesgav.c aesaux.c)
 target_link_libraries(aes_gav aes)
